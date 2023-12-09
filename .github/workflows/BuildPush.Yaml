@@ -3,15 +3,11 @@ name: Docker build pipeline
 
 on: push
 
-jobs: buildPushImage
-
-runs-on: Ubuntu-latest
-
-steps:
- name: Checkout or clone
-        uses: actions/checkout@v3
-      -
-        name: Set up QEMU
+jobs: 
+  buildPushImage:
+    runs-on: Ubuntu-latest
+    steps:
+      -  name: Set up QEMU
         uses: docker/setup-qemu-action@v3
       -
         name: Set up Docker Buildx
@@ -28,4 +24,4 @@ steps:
         with:
         context: .
         push: true
-        tags: moshing4/med-image:latest
+        tags: moshing4/meds-image:latest
